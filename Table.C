@@ -88,14 +88,14 @@ int main()
     setbkcolor(1);
     setConSize(80,30);
     drawBox2(1,1,78,27,1,10);
+    gotoxy(1, 30);
+    printf("Press W, S, A and D for movement of cursor and then input number.");
     drawbgcolor(10,3,37,3,14,12);
     textcolor(1);
     gotoxy(25,4);
     printf("SUDUKU");
     drawSuduku99(10,8,4,2,1,10,1);
     printmove();
-    gotoxy(1, 30);
-    printf("Press W, S, A and D for movement of cursor and then input number.");
     while(!endGame())
     {
         if(x<12)
@@ -122,6 +122,9 @@ int main()
             printf("%c",c);
             a[y/2-4][x/4-3]=c-48;
             move++;
+        } else if (c == '*') {
+            clrscr();
+            exit(0);
         }
     }
     clrscr();
